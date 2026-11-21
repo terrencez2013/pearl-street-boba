@@ -17,8 +17,9 @@
     }
 
     body {
-      margin: 0;
-      padding: 1.5rem;
+      max-width: 64rem;
+      margin: 0 auto;
+      padding: clamp(1rem, 3vw, 2rem);
       font-family: "Nunito Sans", Arial, sans-serif;
       font-size: 1.0625rem;
       line-height: 1.65;
@@ -34,7 +35,7 @@
       justify-content: space-between;
       gap: 0.75rem 1.5rem;
       padding-bottom: 1rem;
-      border-bottom: 2px solid var(--primary);
+      border-bottom: 1px solid var(--secondary);
       margin-bottom: 1rem;
     }
 
@@ -60,9 +61,9 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      padding: 1.5rem;
-      margin-bottom: 1rem;
+      gap: 2rem;
+      padding: clamp(1.5rem, 4vw, 3rem);
+      margin-bottom: 2rem;
       border-radius: 0.5rem;
       background: var(--secondary);
     }
@@ -74,16 +75,28 @@
       border-radius: 0.5rem;
     }
 
-    .hero .photo,
+    .hero > div {
+      flex: 1 1 18rem;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero .photo {
+      width: 15rem;
+    }
+
     .about-photo {
       width: 12rem;
     }
 
     .menu-photos {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 0.75rem;
-      max-width: 48rem;
+      max-width: 32rem;
       margin-bottom: 1rem;
     }
 
@@ -97,7 +110,7 @@
     .hero-button {
       display: inline-block;
       margin-top: 0.5rem;
-      padding: 0.5rem 1rem;
+      padding: 0.85rem 1.5rem;
       border-radius: 0.25rem;
       background: var(--primary);
       color: var(--background);
@@ -181,13 +194,26 @@
 
     h1 {
       margin: 0 0 0.35rem;
-      font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
+      font-size: clamp(2.5rem, 1.5rem + 4vw, 4.5rem);
+      line-height: 1.1;
+      max-width: 12ch;
     }
 
     h2 {
       color: var(--primary);
-      margin: 1.75rem 0 0.5rem;
-      font-size: 1.75rem;
+      margin: 3rem 0 1rem;
+      font-size: 2rem;
+    }
+
+    #menu {
+      font-size: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--secondary);
+    }
+
+    .menu-label {
+      font-weight: 700;
+      margin: 1.5rem 0 0.75rem;
     }
 
     p {
@@ -208,7 +234,7 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 0.75rem;
-      max-width: 48rem;
+      max-width: 64rem;
       padding: 0;
       list-style: none;
     }
@@ -236,6 +262,8 @@
 
     .drink-cards p {
       margin: 0;
+      color: var(--primary);
+      font-weight: 700;
     }
 
     .visit-row {
@@ -251,7 +279,6 @@
 
     @media (min-width: 44rem) {
       .drink-cards,
-      .menu-photos,
       .toppings-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
       }
@@ -285,14 +312,7 @@
   <img class="photo about-photo" src="images/layered.jpg" width="900" height="1350" loading="lazy" alt="Layered boba drink" />
 
   <h2 id="menu">Menu</h2>
-  <div class="menu-photos">
-    <img class="photo" src="images/milk-tea.jpg" width="960" height="1280" loading="lazy" alt="Milk tea" />
-    <img class="photo" src="images/brown-sugar.jpg" width="900" height="675" loading="lazy" alt="Brown sugar boba" />
-    <img class="photo" src="images/brown-sugar-cup.jpg" width="900" height="1350" loading="lazy" alt="Cup of brown sugar milk tea" />
-    <img class="photo" src="images/taro.jpg" width="900" height="1350" loading="lazy" alt="Taro drink" />
-    <img class="photo" src="images/strawberry.jpg" width="900" height="600" loading="lazy" alt="Strawberry drink" />
-  </div>
-  <p>Drinks:</p>
+  <p class="menu-label">Drinks:</p>
   <ul class="drink-cards" role="list">
     <li>
       <img class="photo" src="images/milk-tea.jpg" width="960" height="1280" loading="lazy" alt="Classic milk tea with boba pearls" />
@@ -340,7 +360,15 @@
     </li>
   </ul>
 
-  <p>Toppings:</p>
+  <div class="menu-photos">
+    <img class="photo" src="images/milk-tea.jpg" width="960" height="1280" loading="lazy" alt="Milk tea" />
+    <img class="photo" src="images/brown-sugar.jpg" width="900" height="675" loading="lazy" alt="Brown sugar boba" />
+    <img class="photo" src="images/brown-sugar-cup.jpg" width="900" height="1350" loading="lazy" alt="Cup of brown sugar milk tea" />
+    <img class="photo" src="images/taro.jpg" width="900" height="1350" loading="lazy" alt="Taro drink" />
+    <img class="photo" src="images/strawberry.jpg" width="900" height="600" loading="lazy" alt="Strawberry drink" />
+  </div>
+
+  <p class="menu-label">Toppings:</p>
   <ul class="toppings-grid" role="list">
     <li>Classic boba pearls - +$0.75</li>
     <li>Brown sugar pearls - +$1.00</li>
