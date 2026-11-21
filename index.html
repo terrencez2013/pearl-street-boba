@@ -103,11 +103,57 @@
       color: var(--background);
       font-weight: bold;
       text-decoration: none;
+      transition: transform 150ms ease, box-shadow 150ms ease;
     }
 
     .hero-button:hover,
     .hero-button:focus-visible {
       text-decoration: underline;
+    }
+
+    @media (hover: hover) {
+      .hero-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 3px 8px rgb(53 40 32 / 15%);
+      }
+
+      .drink-cards li:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 12px rgb(53 40 32 / 12%);
+      }
+    }
+
+    .drink-cards li {
+      transition: transform 150ms ease, box-shadow 150ms ease;
+    }
+
+    @keyframes hero-enter {
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .hero {
+        animation: hero-enter 300ms ease-out;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-button,
+      .drink-cards li {
+        transition: none;
+      }
+
+      .hero-button:hover,
+      .drink-cards li:hover {
+        transform: none;
+      }
     }
 
     a:focus-visible {
